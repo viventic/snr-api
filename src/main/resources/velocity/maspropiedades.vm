@@ -1,0 +1,176 @@
+{
+    "ns0:ejecutarBusquedaResponse": {
+        "xmlns:ns0": "http://glass.aac.step.org/",
+        "return": {
+            "tipoResultadoCompleto": [
+                {
+                    "tipoLstCertificadoTradiciLibertSal": {
+                        "jurisdiccionPredio": 206,
+                        "listaAnotacionTramiteCertificadoTradicion": {
+                            "anotacionCertificadoTradicion": {
+                                "personaIntervieneActoAnotacionFolio": {
+                                    "personaRecibePredio": {
+                                        "personaNacionalIntervieneActo": {
+                                            "identificacionPersona": {
+                                                "grupoNumeroIdentificacion": {
+                                                    "numeroCedulaCiudadania": 12239552
+                                                },
+                                                "tipoIdNacionalPersona": {
+                                                    "codTipoIdentificacion": "CC",
+                                                    "nomTipoIdentificacion": ""
+                                                }
+                                            },
+                                            "nomPersonaIndividual": {
+                                                "segundoNombre": "VICENTE",
+                                                "primerApellido": "LASSO",
+                                                "primerNombre": "SEGUNDO",
+                                                "segundoApellido": "ORDO/EZ"
+                                            },
+                                            "esPropietario": "X"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "tipoLstCertificadoTradiciLibertEnt": {
+                        "numeroDirecciones": 1,
+                        "ubicacionMatriculaSistemaSNR": {
+                            "estadoMatricula": 2,
+                            "cedulaCatastralPredio": "000101110002000",
+                            "CHIPPredio": "000101110002000",
+                            "numeroMatriculaInmobiliariaPredio": 75420,
+                            "direccionNacionalUrbanaUbicacionPredio": {
+                                "municipio": {
+                                    "nomMunicipio": "PITALITO",
+                                    "codMunicipio": 41551
+                                },
+                                "departamento": {
+                                    "nomDepartamento": "HUILA",
+                                    "codDepartamento": 41
+                                },
+                                "numeroDireccion": 0,
+                                "nomenclaturaDomiciliariaUrbana": "PREDIO .  #  SEGUNDO LOTE 1"
+                            }
+                        },
+                        "numeroPropietarios": 1
+                    }
+                },
+                {
+                    "tipoLstCertificadoTradiciLibertSal": {
+                        "jurisdiccionPredio": 206,
+                        "listaAnotacionTramiteCertificadoTradicion": {
+                            "anotacionCertificadoTradicion": {
+                                "personaIntervieneActoAnotacionFolio": {
+                                    "personaRecibePredio": {
+                                        "personaNacionalIntervieneActo": {
+                                            "identificacionPersona": {
+                                                "grupoNumeroIdentificacion": {
+                                                    "numeroCedulaCiudadania": 12239552
+                                                },
+                                                "tipoIdNacionalPersona": {
+                                                    "codTipoIdentificacion": "CC",
+                                                    "nomTipoIdentificacion": ""
+                                                }
+                                            },
+                                            "nomPersonaIndividual": {
+                                                "segundoNombre": "VICENTE",
+                                                "primerApellido": "LASSO",
+                                                "primerNombre": "SEGUNDO",
+                                                "segundoApellido": "ORDO/EZ"
+                                            },
+                                            "esPropietario": "X"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "tipoLstCertificadoTradiciLibertEnt": {
+                        "numeroDirecciones": 1,
+                        "ubicacionMatriculaSistemaSNR": {
+                            "estadoMatricula": 2,
+                            "cedulaCatastralPredio": "000101110002000",
+                            "CHIPPredio": "000101110002000",
+                            "numeroMatriculaInmobiliariaPredio": 75421,
+                            "direccionNacionalUrbanaUbicacionPredio": {
+                                "municipio": {
+                                    "nomMunicipio": "PITALITO",
+                                    "codMunicipio": 41551
+                                },
+                                "departamento": {
+                                    "nomDepartamento": "HUILA",
+                                    "codDepartamento": 41
+                                },
+                                "numeroDireccion": 0,
+                                "nomenclaturaDomiciliariaUrbana": "PREDIO .  #  SEGUNDO LOTE 2"
+                            }
+                        },
+                        "numeroPropietarios": 1
+                    }
+                },
+                {
+                    "tipoLstCertificadoTradiciLibertSal": {
+                        "jurisdiccionPredio": 206,
+                        "listaAnotacionTramiteCertificadoTradicion": {
+                            "anotacionCertificadoTradicion": {
+                                "personaIntervieneActoAnotacionFolio": {
+                                    "personaRecibePredio": {
+                                        "porcentajeParticipacionParte": "$1.473.000.00 CON OTRO PREDIO",
+                                        "personaNacionalIntervieneActo": {
+                                            "identificacionPersona": {
+                                                "grupoNumeroIdentificacion": {
+                                                    "numeroCedulaCiudadania": 12239552
+                                                },
+                                                "tipoIdNacionalPersona": {
+                                                    "codTipoIdentificacion": "CC",
+                                                    "nomTipoIdentificacion": ""
+                                                }
+                                            },
+                                            "nomPersonaIndividual": {
+                                                "segundoNombre": "VICENTE",
+                                                "primerApellido": "LASSO",
+                                                "primerNombre": "SEGUNDO",
+                                                "segundoApellido": "ORDO/EZ"
+                                            },
+                                            "porcentajeParticipacion": "$1.473.000.00 CON OTRO PREDIO",
+                                            "esPropietario": "X"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "tipoLstCertificadoTradiciLibertEnt": {
+                        "numeroDirecciones": 1,
+                        "ubicacionMatriculaSistemaSNR": {
+                            "estadoMatricula": 2,
+                            "cedulaCatastralPredio": "415510001000001110002000000000",
+                            "CHIPPredio": "415510001000001110002000000000",
+                            "numeroMatriculaInmobiliariaPredio": 33608,
+                            "direccionNacionalUrbanaUbicacionPredio": {
+                                "municipio": {
+                                    "nomMunicipio": "PITALITO",
+                                    "codMunicipio": 41551
+                                },
+                                "departamento": {
+                                    "nomDepartamento": "HUILA",
+                                    "codDepartamento": 41
+                                },
+                                "numeroDireccion": 0,
+                                "nomenclaturaDomiciliariaUrbana": "PREDIO BUENAVISTA"
+                            }
+                        },
+                        "numeroPropietarios": 2
+                    }
+                }
+            ],
+            "tipoLogResultadoConsulta": {
+                "fechaHoraConsulta": "2022-08-10T16:58:12.617",
+                "identificacionNotaria": "",
+                "mensaje": "Consulta Exitosa",
+                "consecutivoConsulta": 345820267
+            }
+        }
+    }
+}

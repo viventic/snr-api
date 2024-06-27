@@ -1,0 +1,13 @@
+{
+    "ns0:ejecutarBusquedaResponse": {
+        "xmlns:ns0": "http://glass.aac.step.org/",
+        "return": {
+            "tipoLogResultadoConsulta": {
+                "fechaHoraConsulta": "2022-07-11T19:46:49.329",
+                "identificacionNotaria": "",
+                "mensaje": "Consulta No Exitosa, no hay registros con los datos indicados.",
+                "consecutivoConsulta": 335622611
+            }
+        }
+    }
+}

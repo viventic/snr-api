@@ -1,0 +1,5 @@
+{
+	"cantPropiedades": ${exchange.properties.cantPropiedades},
+	"mhoNumDocumento": ${headers.mhoNumDocumento},
+	"tipoId": "${headers.tipoId}"
+}

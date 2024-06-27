@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd          http://camel.apache.org/schema/spring         http://camel.apache.org/schema/spring/camel-spring-2.25.3.xsd">
+    <import resource="bean-definitions.xml"/>
+    <camelContext id="camelContext-ce0e3c0d-5251-4493-97dd-41385f560f35" xmlns="http://camel.apache.org/schema/spring">
+        <propertyPlaceholder id="placeholder" location="globalConfig.properties"/>
+        <onException>
+            <exception>com.middleware.exception.ServiceException</exception>
+            <handled>
+                <constant>true</constant>
+            </handled>
+            <setHeader headerName="codigoError">
+                <simple>${exception.codigoError}</simple>
+            </setHeader>
+            <setHeader headerName="messageError">
+                <simple>${exception.message}</simple>
+            </setHeader>
+            <setHeader headerName="Content-Type">
+                <constant>application/json</constant>
+            </setHeader>
+            <setBody>
+                <simple>{"code":"${exception.codigoError}","errorMessage":"${exception.message}"}
+		</simple>
+            </setBody>
+            <log message="ERROR: ${body}"/>
+        </onException>
+        <onException>
+            <exception>java.lang.Exception</exception>
+            <handled>
+                <constant>true</constant>
+            </handled>
+            <setHeader headerName="Content-Type">
+                <constant>application/json</constant>
+            </setHeader>
+            <setBody>
+                <simple> { "STATUS": "${exception.message}", "DESCRIPTION": "Servicio disponible de 06:00 p.m. a 06:00 a.m.: segun ANS establecida" }</simple>
+            </setBody>
+            <log loggingLevel="INFO" message="\n${body}"/>
+        </onException>
+        <!--  route service  -->
+        <route id="_routeServicio" streamCache="true">
+            <from id="_endPoint" uri="jetty:{{service.rest.protocol}}://{{service.rest.host}}:{{service.rest.port}}{{service.rest.resource.props}}?httpMethodRestrict=POST"/>
+            <convertBodyTo id="_convertBodyToString" type="java.lang.String"/>
+            <!-- BODY data -->
+            <log id="_log1" loggingLevel="INFO" message="\n:::::::::Body-request::::::::::\n${body}"/>
+            <setHeader headerName="mhoNumDocumento" id="_setHeader1">
+                <jsonpath resultType="java.lang.String">$.mhoNumDocumento</jsonpath>
+            </setHeader>
+            <setHeader headerName="tipoId" id="_setHeader2">
+                <jsonpath resultType="java.lang.String">$.tipoId</jsonpath>
+            </setHeader>
+            <!-- LLamada al SNR -->
+            <toD id="_toD1" uri="velocity:velocity/post-snr-body.vm"/>
+            <setHeader headerName="Content-Type" id="_setHeader3">
+                <constant>application/json</constant>
+            </setHeader>
+            <setHeader headerName="x-road-client" id="_setHeader4">
+                <constant>CO/GOB/MINVIVIENDA-8004/SISFV</constant>
+            </setHeader>
+            <toD id="requestSNR" uri="http4://172.27.0.165/r1/CO/GOB/SNR-0027/FM-SIR/wsConsultaPropietariosTransformadorREST?bridgeEndpoint=true&amp;httpMethod=POST"/>
+            <choice id="_choice1">
+                <when id="_when1">
+                    <jsonpath resultType="java.lang.String">$.[?(@.ns0:ejecutarBusquedaResponse)]</jsonpath>
+                    <choice id="_choice2">
+                        <when id="_when2">
+                            <jsonpath resultType="java.lang.String">$.ns0:ejecutarBusquedaResponse.return[?(@.tipoResultadoCompleto )]</jsonpath>
+                            <log id="_log2" loggingLevel="INFO" message="TIENE PROPIEDADES"/>
+                            <setProperty id="_setProperty1" propertyName="tipoResultadoCompleto">
+                                <jsonpath resultType="java.lang.String">$.ns0:ejecutarBusquedaResponse.return.tipoResultadoCompleto</jsonpath>
+                            </setProperty>
+                            <choice id="_choice3">
+                                <when id="_when3">
+                                    <simple>${exchangeProperty.tipoResultadoCompleto.substring(0,1)} == "{"</simple>
+                                    <setProperty id="_setProperty2" propertyName="cantPropiedades">
+                                    <constant>1</constant>
+                                    </setProperty>
+                                    <setProperty id="_setProperty3" propertyName="tipoResultadoCompleto">
+                                    <simple>${body}</simple>
+                                    </setProperty>
+                                </when>
+                                <otherwise id="_otherwise1">
+                                    <setProperty id="_setProperty4" propertyName="cantPropiedades">
+                                    <jsonpath resultType="java.lang.String">$.ns0:ejecutarBusquedaResponse.return.tipoResultadoCompleto.length()</jsonpath>
+                                    </setProperty>
+                                </otherwise>
+                            </choice>
+                            <toD id="_toD2" uri="velocity:velocity/body-response-ok-cp.vm"/>
+                        </when>
+                        <otherwise id="_otherwise2">
+                            <log id="_log3" loggingLevel="INFO" message="SIN PROPIEDADES"/>
+                            <setProperty id="_setProperty5" propertyName="cantPropiedades">
+                                <constant>0</constant>
+                            </setProperty>
+                            <log id="_log4" loggingLevel="INFO" message="Se envia con 0"/>
+                            <toD id="_toD3" uri="velocity:velocity/body-response-ok-sp.vm"/>
+                        </otherwise>
+                    </choice>
+                </when>
+                <otherwise id="_otherwise3">
+                    <log id="_log5" loggingLevel="ERROR" message="Error al llamar servicio SNR"/>
+                    <setHeader headerName="Exchange.HTTP_RESPONSE_CODE" id="_setHeader5">
+                        <constant>500</constant>
+                    </setHeader>
+                    <toD id="_toD4" uri="velocity:velocity/body-response-error.vm"/>
+                    <!-- Arrojar exception -->
+                </otherwise>
+            </choice>
+        </route>
+    </camelContext>
+</beans>

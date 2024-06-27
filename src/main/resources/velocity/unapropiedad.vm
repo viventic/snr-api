@@ -1,0 +1,64 @@
+{
+    "ns0:ejecutarBusquedaResponse": {
+        "xmlns:ns0": "http://glass.aac.step.org/",
+        "return": {
+            "tipoResultadoCompleto": {
+                "tipoLstCertificadoTradiciLibertSal": {
+                    "jurisdiccionPredio": 214,
+                    "listaAnotacionTramiteCertificadoTradicion": {
+                        "anotacionCertificadoTradicion": {
+                            "personaIntervieneActoAnotacionFolio": {
+                                "personaRecibePredio": {
+                                    "personaNacionalIntervieneActo": {
+                                        "identificacionPersona": {
+                                            "grupoNumeroIdentificacion": {
+                                                "numeroCedulaCiudadania": 17976666
+                                            },
+                                            "tipoIdNacionalPersona": {
+                                                "codTipoIdentificacion": "CC",
+                                                "nomTipoIdentificacion": ""
+                                            }
+                                        },
+                                        "nomPersonaIndividual": {
+                                            "segundoNombre": "JOSE",
+                                            "primerApellido": "CABRERA",
+                                            "primerNombre": "LUIS",
+                                            "segundoApellido": "DE LEON"
+                                        },
+                                        "esPropietario": "X"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tipoLstCertificadoTradiciLibertEnt": {
+                    "numeroDirecciones": 1,
+                    "ubicacionMatriculaSistemaSNR": {
+                        "estadoMatricula": 2,
+                        "numeroMatriculaInmobiliariaPredio": 29019,
+                        "direccionNacionalUrbanaUbicacionPredio": {
+                            "municipio": {
+                                "nomMunicipio": "VILLANUEVA",
+                                "codMunicipio": 44874
+                            },
+                            "departamento": {
+                                "nomDepartamento": "LA GUAJIRA",
+                                "codDepartamento": 44
+                            },
+                            "numeroDireccion": 0,
+                            "nomenclaturaDomiciliariaUrbana": "CARRERA VEINTICINCO (25),  NÚMERO  SIETE TREINTA (7-30),"
+                        }
+                    },
+                    "numeroPropietarios": 1
+                }
+            },
+            "tipoLogResultadoConsulta": {
+                "fechaHoraConsulta": "2022-08-10T16:50:42.834",
+                "identificacionNotaria": "",
+                "mensaje": "Consulta Exitosa",
+                "consecutivoConsulta": 345815553
+            }
+        }
+    }
+}

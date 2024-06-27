@@ -1,0 +1,9 @@
+{
+    "tipoConsulta":"FONVIVENDA",
+    "numeroDirecciones":"0",
+    "numeroPropietarios":"0",
+    "numeroIdentificacion":"${headers.mhoNumDocumento}",
+    "tipoId":"${headers.tipoId}",
+    "sistemaUsuario":"Exentos",
+    "clave":"22"
+}
