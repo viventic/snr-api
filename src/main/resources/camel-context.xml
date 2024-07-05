@@ -19,10 +19,10 @@
                 <constant>application/json</constant>
             </setHeader>
             <setBody>
-                <simple>{"code":"${exception.codigoError}","errorMessage":"${exception.message}"}
-		</simple>
+                <simple>{"code":"${exception.codigoError}","errorMessage":"${exception.message}"}</simple>
             </setBody>
             <log message="ERROR: ${body}"/>
+			<log loggingLevel="ERROR" message="${exception.stacktrace}"/>
         </onException>
         <onException>
             <exception>java.lang.Exception</exception>
@@ -33,9 +33,10 @@
                 <constant>application/json</constant>
             </setHeader>
             <setBody>
-                <simple> { "STATUS": "${exception.message}", "DESCRIPTION": "Servicio disponible de 06:00 p.m. a 06:00 a.m.: segun ANS establecida" }</simple>
+                <simple>{"STATUS": "${exception.message}", "DESCRIPTION": "Servicio disponible de 06:00 p.m. a 06:00 a.m.: segun ANS establecida" }</simple>
             </setBody>
             <log loggingLevel="INFO" message="\n${body}"/>
+			<log loggingLevel="ERROR" message="${exception.stacktrace}"/>
         </onException>
         <!--  route service  -->
         <route id="_routeServicio" streamCache="true">
@@ -44,11 +45,12 @@
             <!-- BODY data -->
             <log id="_log1" loggingLevel="INFO" message="\n:::::::::Body-request::::::::::\n${body}"/>
             <setHeader headerName="mhoNumDocumento" id="_setHeader1">
-                <jsonpath resultType="java.lang.String">$.mhoNumDocumento</jsonpath>
+                <jsonpath resultType="java.lang.String">$.numeroIdentificacion</jsonpath>
             </setHeader>
             <setHeader headerName="tipoId" id="_setHeader2">
                 <jsonpath resultType="java.lang.String">$.tipoId</jsonpath>
             </setHeader>
+			<log id="_log2" loggingLevel="INFO" message="${header.mhoNumDocumento}"/>
             <!-- LLamada al SNR -->
             <toD id="_toD1" uri="velocity:velocity/post-snr-body.vm"/>
             <setHeader headerName="Content-Type" id="_setHeader3">
